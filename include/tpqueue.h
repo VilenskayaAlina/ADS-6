@@ -7,12 +7,11 @@ class TPQueue {
  private:
   T arr[size] = {0};
   int first, last;
-  }
 
  public:
   TPQueue():first(0), last(0) {}
 
-  void push(T& value) {
+  void push(const T& value) {
     int i = last;
     if (fast - first >= size) {
       throw std::string("Full!");
