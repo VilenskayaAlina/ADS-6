@@ -5,7 +5,8 @@
 template<typename T, int size>
 class TPQueue {
  private:
-  T arr[size] = {0};
+  int size = 100;
+  T arr[size];
   int first, last;
 
  public:
@@ -14,7 +15,7 @@ class TPQueue {
   void push(const T& value) {
     int i = last;
     if (last - first >= size) {
-      throw std::string("Full!");
+      throw "Full!";
     } else {
         int i = last;
         while ((value.prior > arr[i % size].prior) && (i-- >= first)) {
@@ -26,22 +27,10 @@ class TPQueue {
   }
   T pop() {
     if (first == last)
-      throw std::string("Empty!");
+      throw "Empty!";
     else
       return arr[(first++) % size];
     }
-  T front() {
-    if (first == last)
-      throw std::string("Empty!");
-    else
-      return arr[first % size];
-  }
-  T back() {
-    if (first == last)
-      throw std::string("Empty!");
-    else
-      return arr[(last - 1) % size];
-  }
 };
 
 struct SYM {
