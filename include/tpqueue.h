@@ -11,7 +11,7 @@ class TPQueue {
  public:
   TPQueue():first(0), last(0) {}
 
-  void push(const T& value) {
+  void push(T value) {
     if (last - first >= size) {
       throw "Full!";
     } else {
