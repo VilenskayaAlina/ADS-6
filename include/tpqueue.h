@@ -5,7 +5,7 @@
 template<typename T, int size>
 class TPQueue {
  private:
-  T arr[100];
+  T arr[50];
   int first, last;
 
  public:
@@ -23,13 +23,14 @@ class TPQueue {
             }
             arr[i % size] = value;
             last++;
+            return;
           }
           i++;
         }
      arr[last++ % size] = value;
     }
   }
-  T pop() {
+  T& pop() {
       return arr[(first++) % size];
     }
 };
