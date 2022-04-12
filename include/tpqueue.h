@@ -5,14 +5,13 @@
 template<typename T, int size>
 class TPQueue {
  private:
-  T arr[size];
+  T arr[100];
   int first, last;
 
  public:
   TPQueue():first(0), last(0) {}
 
   void push(const T& value) {
-    int i = last;
     if (last - first >= size) {
       throw "Full!";
     } else {
@@ -22,6 +21,7 @@ class TPQueue {
           i--;
         }
      arr[(i + 1) % size] = value;
+     last++;
     }
   }
   T pop() {
