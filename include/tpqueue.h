@@ -21,7 +21,7 @@ class TPQueue {
             for (int n = last-1; n >= i; n--) {
               arr[(n + 1) % size] = arr[n % size];
             }
-            arr[i % size] = value
+            arr[i % size] = value;
             last++;
           }
           i++;
