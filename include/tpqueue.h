@@ -5,7 +5,7 @@
 template<typename T, int size>
 class TPQueue {
  private:
-  T arr[100];
+  T arr[size];
   int first, last;
 
  public:
@@ -16,8 +16,8 @@ class TPQueue {
     if (last - first >= size) {
       throw "Full!";
     } else {
-        int i = last;
-        while ((value.prior > arr[i % size].prior) && (i-- >= first)) {
+        int i = last - 1;
+        while ((value.prior > arr[i % size].prior) && (i >= first)) {
           arr[(i + 1) % size] = arr[i % size];
           i--;
         }
