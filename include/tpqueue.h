@@ -15,13 +15,18 @@ class TPQueue {
     if (last - first >= size) {
       throw "Full!";
     } else {
-        int i = last - 1;
-        while ((value.prior > arr[i % size].prior) && (i >= first)) {
-          arr[(i + 1) % size] = arr[i % size];
-          i--;
+        int i = first;
+        while (i < last) {
+          if (value.prior > arr[i % size].prior) {
+            for (int n = last-1; n >= i; n--) {
+              arr[(n + 1) % size] = arr[n % size];
+            }
+            arr[i % size] = value
+            last++;
+          }
+          i++;
         }
      arr[(i + 1) % size] = value;
-     last++;
     }
   }
   T pop() {
