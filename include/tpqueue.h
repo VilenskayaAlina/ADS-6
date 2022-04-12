@@ -23,7 +23,7 @@ class TPQueue {
             }
             arr[i % size] = value;
             last++;
-            continue;
+            return;
           }
           i++;
         }
