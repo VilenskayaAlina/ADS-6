@@ -25,9 +25,6 @@ class TPQueue {
     }
   }
   T pop() {
-    if (first == last)
-      throw "Empty!";
-    else
       return arr[(first++) % size];
     }
 };
